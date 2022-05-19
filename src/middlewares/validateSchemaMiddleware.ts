@@ -10,4 +10,4 @@ export function validateSchemaMiddleware(schema: ObjectSchema) {
 
     next();
   };
-}
+};

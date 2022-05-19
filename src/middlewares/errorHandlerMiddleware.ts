@@ -18,4 +18,4 @@ export function errorHandlerMiddleware(
   }
 
   return res.sendStatus(500);
-}
+};

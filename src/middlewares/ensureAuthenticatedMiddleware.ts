@@ -25,4 +25,4 @@ export async function ensureAuthenticatedMiddleware(
   } catch {
     throw unauthorizedError("Invalid token");
   }
-}
+};
