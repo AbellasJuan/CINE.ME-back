@@ -16,6 +16,14 @@ async function findByEmail(email: string) {
   });
 };
 
+async function findByUserName(userName: string) {
+  return prisma.user.findUnique({
+    where: {
+      userName,
+    },
+  });
+};
+
 async function findAll(){
   return prisma.user.findMany();
 }
@@ -23,5 +31,6 @@ async function findAll(){
 export default {
   findByEmail,
   findById,
-  findAll
+  findByUserName,
+  findAll,
 };
