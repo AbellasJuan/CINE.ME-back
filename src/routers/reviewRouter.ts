@@ -8,4 +8,8 @@ const reviewsRouter = Router();
 
 reviewsRouter.post("/reviews", ensureAuthenticatedMiddleware, validateSchemaMiddleware(createReviewSchema), reviewController.postReview);
 
+reviewsRouter.get("/reviews", ensureAuthenticatedMiddleware, reviewController.getAllReviews);
+
+reviewsRouter.get("/reviews/:id", ensureAuthenticatedMiddleware, reviewController.getReviewsById);
+
 export default reviewsRouter;

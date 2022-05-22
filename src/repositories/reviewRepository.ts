@@ -9,6 +9,22 @@ async function insert(createReview: CreateReview) {
   });
 };
 
+async function getAll(){
+  const reviews = prisma.review.findMany();
+  return reviews;
+};
+
+async function getById(id: number){
+  const reviews = prisma.review.findMany({
+    where: {
+		 userId: id
+		}
+  });
+  return reviews;
+};
+
 export default {
-  insert
+  insert,
+  getAll,
+  getById
 };

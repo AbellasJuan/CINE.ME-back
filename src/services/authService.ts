@@ -27,7 +27,6 @@ async function signIn(loginData: CreateUserData) {
 
 async function getUserOrFail(loginData: CreateUserData) {
   const user = await userRepository.findByEmail(loginData.email);
-  console.log('aqui', user)
   if (!user) throw unauthorizedError("Invalid credentials");
   const isPasswordValid = bcrypt.compareSync(loginData.password, user.password);
   if (!isPasswordValid) throw unauthorizedError("Invalid credentials");
