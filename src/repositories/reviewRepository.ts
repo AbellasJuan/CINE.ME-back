@@ -17,8 +17,9 @@ async function getAll(){
 async function getById(id: number){
   const reviews = prisma.review.findMany({
     where: {
-		 userId: id
-		}
+		 userId: id,
+		},
+    orderBy: { id: "desc" },
   });
   return reviews;
 };

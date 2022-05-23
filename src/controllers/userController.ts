@@ -12,7 +12,16 @@ async function getUserById(req: Request, res: Response) {
   res.send(user).status(200);
 };
 
+async function getUserByUserName(req: Request, res: Response) {
+  const { userName } = req.query;
+
+  console.log(userName)
+  const users = await userService.findByUserName(String(userName));
+  res.send(users).status(200);
+};
+
 export default {
   getAllUsers,
-  getUserById
+  getUserById,
+  getUserByUserName
 };

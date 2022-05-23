@@ -17,12 +17,23 @@ async function findByEmail(email: string) {
 };
 
 async function findByUserName(userName: string) {
-  return prisma.user.findUnique({
+
+  console.log(userName, 'aqui')
+  return prisma.user.findMany({
+    
     where: {
-      userName,
+      email: {
+        contains: userName
+      }
     },
+    select: {
+      id: true,
+      userName: true,
+      email: true
+  },
   });
 };
+
 
 async function findAll(){
   return prisma.user.findMany();
