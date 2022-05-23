@@ -14,7 +14,13 @@ async function getAllReviews(req: Request, res: Response) {
 
 async function getReviewsById(req: Request, res: Response) {
   const { id } = req.params;
-  const reviews = await reviewService.getById(Number(id));
+  const { friendId } = req.query;
+  let reviews = [];
+  if(!friendId){
+    reviews = await reviewService.getById(Number(id));
+  } else{
+    reviews = await reviewService.getById(Number(friendId));
+  }
   res.send(reviews).status(200);
 };
 

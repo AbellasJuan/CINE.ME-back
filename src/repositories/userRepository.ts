@@ -17,8 +17,14 @@ async function findByEmail(email: string) {
 };
 
 async function findByUserName(userName: string) {
+  return prisma.user.findUnique({
+    where: {
+      userName,
+    },
+  });
+};
 
-  console.log(userName, 'aqui')
+async function findAllByUserName(userName: string) {
   return prisma.user.findMany({
     
     where: {
@@ -29,11 +35,9 @@ async function findByUserName(userName: string) {
     select: {
       id: true,
       userName: true,
-      email: true
   },
   });
 };
-
 
 async function findAll(){
   return prisma.user.findMany();
@@ -44,4 +48,5 @@ export default {
   findById,
   findByUserName,
   findAll,
+  findAllByUserName
 };

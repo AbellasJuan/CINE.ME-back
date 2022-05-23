@@ -19,9 +19,8 @@ async function findByEmail(email: string){
   return users;
 }
 
-async function findByUserName(userName: string){
-  const users = await userRepository.findByUserName(userName);
-  console.log(userName, 'passou')
+async function findAllByUserName(userName: string){
+  const users = await userRepository.findAllByUserName(userName);
   return users;
 }
 
@@ -29,5 +28,5 @@ export default {
   findById,
   findAll,
   findByEmail,
-  findByUserName
+  findAllByUserName
 };

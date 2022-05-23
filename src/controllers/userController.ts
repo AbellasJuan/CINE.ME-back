@@ -15,8 +15,7 @@ async function getUserById(req: Request, res: Response) {
 async function getUserByUserName(req: Request, res: Response) {
   const { userName } = req.query;
 
-  console.log(userName)
-  const users = await userService.findByUserName(String(userName));
+  const users = await userService.findAllByUserName(String(userName));
   res.send(users).status(200);
 };
 
