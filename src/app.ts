@@ -7,7 +7,16 @@ import router from "./routers/index.js";
 
 const app = express();
 app.use(json());
-app.use(cors());
+app.use(
+  app.use(
+    cors({
+      origin: "https://seu-dominio.com",
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+      credentials: true,
+    })
+  )
+);
 app.use(router);
 app.use(errorHandlerMiddleware);
 
