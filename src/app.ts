@@ -9,7 +9,7 @@ const app = express();
 app.use(json());
   app.use(
     cors({
-      origin: "https://seu-dominio.com",
+      origin: "https://cine-me-front-ysh5.vercel.app/",
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
       credentials: true,
